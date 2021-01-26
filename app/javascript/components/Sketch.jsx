@@ -1,7 +1,7 @@
 import React from "react";
 import Sketch from "react-p5";
  
-export default (props) => {
+const sketch = (props) => {
     let angle = 0;
  
     const setup = (p5, canvasParentRef) => {
@@ -32,3 +32,5 @@ export default (props) => {
  
     return <Sketch setup={setup} draw={draw} />;
 };
+
+export default sketch
