@@ -22,7 +22,7 @@ const sketch = (props) => {
             p5.strokeWeight(10)
             p5.stroke(0,50)
             p5.line(p5.mouseX-p5.windowWidth/2, p5.mouseY-p5.windowHeight/2, p5.windowWidth/2, p5.windowHeight/2)
-            angle += 2;
+            angle += 2; 
             p5.pop()
           } else {
             angle = 0
