@@ -3,6 +3,7 @@ import Sketch from "react-p5";
  
 const sketch = (props) => {
     let angle = 0;
+    let lineEndRandomizer = Math.random()
  
     const setup = (p5, canvasParentRef) => {
         // use parent to render the canvas in this ref
@@ -21,11 +22,12 @@ const sketch = (props) => {
             // p5.circle(p5.mouseX-p5.width/2, p5.mouseY-p5.width/2, 10)
             p5.strokeWeight(10)
             p5.stroke(0,50)
-            p5.line(p5.mouseX-p5.windowWidth/2, p5.mouseY-p5.windowHeight/2, p5.windowWidth/2, p5.windowHeight/2)
+            p5.line(p5.mouseX-p5.windowWidth/2, p5.mouseY-p5.windowHeight/2, (p5.windowWidth/2)*lineEndRandomizer, (p5.windowHeight/2)*lineEndRandomizer)
             angle += 2; 
             p5.pop()
           } else {
-            angle = 0
+            angle = 0;
+            lineEndRandomizer = Math.random();
           }
 
     };
