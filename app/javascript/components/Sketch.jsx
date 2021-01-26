@@ -2,8 +2,8 @@ import React from "react";
 import Sketch from "react-p5";
  
 export default (props) => {
-    let x = 50;
-    const y = 50;
+    let x = 0;
+    let y = 50;
  
     const setup = (p5, canvasParentRef) => {
         // use parent to render the canvas in this ref
@@ -18,6 +18,15 @@ export default (props) => {
         // in the draw function...
         // please use normal variables or class properties for these purposes
         x++;
+        if (x > p5.width+70) {
+            x = 0;
+            y += 70;
+        }
+
+        if (x > p5.height+70) {
+            y = 0;
+        }
+
     };
  
     return <Sketch setup={setup} draw={draw} />;
