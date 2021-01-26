@@ -11,11 +11,11 @@ export default () => (
         </p>
         <hr className="my-4" />
         <Link
-          to="/things"
+          to="/draw"
           className="btn btn-lg custom-button"
           role="button"
         >
-          View the things
+          Spinny Draw
         </Link>
       </div>
     </div>

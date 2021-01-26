@@ -2,30 +2,31 @@ import React from "react";
 import Sketch from "react-p5";
  
 export default (props) => {
-    let x = 0;
-    let y = 50;
+    let angle = 0;
  
     const setup = (p5, canvasParentRef) => {
         // use parent to render the canvas in this ref
         // (without that p5 will render the canvas outside of your component)
         p5.createCanvas(500, 500).parent(canvasParentRef);
+        p5.background(220);
+        p5.angleMode(p5.DEGREES)
     };
  
     const draw = (p5) => {
-        p5.background(0);
-        p5.ellipse(x, y, 70, 70);
-        // NOTE: Do not use setState in the draw function or in functions that are executed
-        // in the draw function...
-        // please use normal variables or class properties for these purposes
-        x++;
-        if (x > p5.width+70) {
-            x = 0;
-            y += 70;
-        }
-
-        if (x > p5.height+70) {
-            y = 0;
-        }
+        if (p5.mouseIsPressed) {
+            p5.push()
+            p5.translate(p5.width/2, p5.height/2)
+            p5.rotate(angle)
+            // p5.noStroke()
+            // p5.circle(p5.mouseX-p5.width/2, p5.mouseY-p5.width/2, 10)
+            p5.strokeWeight(10)
+            p5.stroke(0,50)
+            p5.line(p5.mouseX-p5.width/2, p5.mouseY-p5.width/2, p5.width/2, p5.height/2)
+            angle += 2;
+            p5.pop()
+          } else {
+            angle = 0
+          }
 
     };
  
